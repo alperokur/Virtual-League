@@ -56,7 +56,6 @@ class Team{
         Coach* coach;
         int defence, midfielder, striker;
         vector<Player*> player;
-        vector<int*> jesusNumber;
         int averageAge, averagePerformance;
         int averagePerformanceDefence, averagePerformanceMidfielder, averagePerformanceStriker;
         int played = 0, won = 0, draw = 0, lost = 0, goal = 0, against = 0, goalDifference = 0, point = 0;
@@ -267,7 +266,7 @@ void Team::AddPlayer(const char& po){
 
 void Team::SetTactic(const int& d, const int& m, const int& s){
     if (d + m + s != 10){
-        cout << "Taktikteki oyuncu sayýsýnýn toplamý 10 olmalýdýr. (Örn: 4-4-2)" << endl;
+        cout << "Taktikteki oyuncu sayÃ½sÃ½nÃ½n toplamÃ½ 10 olmalÃ½dÃ½r. (Ã–rn: 4-4-2)" << endl;
     }
     else {
         // Goalkeeper
@@ -424,10 +423,10 @@ int Team::GetAveragePerformancePosition(const char& p){
 }
 
 void Team::GetTeamInfo(const int& s) const{
-    Title(GetTeamName() + " | " + GetShortName() + " | " + GetCoach() + " | Ortalama Performans: " + to_string(GetTeamAveragePerformance()) + " | Ortalama Yaþ: " + to_string(GetTeamAverageAge()) + " | Galibiyet: " + to_string(GetTeamWon()) + " | Yenilgi: " + to_string(GetTeamLost()) + " | Atýlan Gol: " + to_string(GetTeamGoal()) + " | Yenilen Gol: " + to_string(GetTeamAgainst()) + " | Averaj: " + to_string(GetTeamGoalDifference()));
+    Title(GetTeamName() + " | " + GetShortName() + " | " + GetCoach() + " | Ortalama Performans: " + to_string(GetTeamAveragePerformance()) + " | Ortalama YaÃ¾: " + to_string(GetTeamAverageAge()) + " | Galibiyet: " + to_string(GetTeamWon()) + " | Yenilgi: " + to_string(GetTeamLost()) + " | AtÃ½lan Gol: " + to_string(GetTeamGoal()) + " | Yenilen Gol: " + to_string(GetTeamAgainst()) + " | Averaj: " + to_string(GetTeamGoalDifference()));
     cout << endl;
     
-    cout << string(36, ' ') << underline << " Sýra No " << ununderline << "    "<< underline << "    Ýsim Soyisim    " << ununderline << "    " << underline << " Mevki " << ununderline << "    " << underline << " Yaþ " << ununderline << "    " << underline << " Performans " << ununderline << "    " << underline " Forma Numarasý " << ununderline << endl;
+    cout << string(36, ' ') << underline << " SÃ½ra No " << ununderline << "    "<< underline << "    Ãsim Soyisim    " << ununderline << "    " << underline << " Mevki " << ununderline << "    " << underline << " YaÃ¾ " << ununderline << "    " << underline << " Performans " << ununderline << "    " << underline " Forma NumarasÃ½ " << ununderline << endl;
     for (int i = 0; i < player.size(); i++){ 
         Player* p = player[i];
         string playerName = p->GetPlayerName();
@@ -449,12 +448,12 @@ void Team::GetTeamInfo(const int& s) const{
         cout << string(36, ' ') << "   " << setw(2) << i+1 << "         " << playerName << "        "  << Position(p->GetPlayerPosition()) << "         " << setw(2) << p->GetPlayerAge() << "         " << setw(3) << p->GetPlayerPerformance() << "                " << setw(2) << p->GetPlayerJesusNumber() << endl;
 	}
     cout << endl;
-    cout << "1. Oyuncu Performansýný Düzenle " << endl;
+    cout << "1. Oyuncu PerformansÃ½nÃ½ DÃ¼zenle " << endl;
     cout << endl;
-    cout << "0. Geri Dön" << endl;
+    cout << "0. Geri DÃ¶n" << endl;
     cout << endl;
-    cout << "Lütfen yapmak istediðiniz iþlem numarasýný giriniz: ";
-    int state = WrongValue(0, 1, "Hatalý iþlem numarasý girdiniz.", "Lütfen tekrar giriniz: ");
+    cout << "LÃ¼tfen yapmak istediÃ°iniz iÃ¾lem numarasÃ½nÃ½ giriniz: ";
+    int state = WrongValue(0, 1, "HatalÃ½ iÃ¾lem numarasÃ½ girdiniz.", "LÃ¼tfen tekrar giriniz: ");
     switch(state){
         case 0: {
             MenuProcess(s);
@@ -462,12 +461,12 @@ void Team::GetTeamInfo(const int& s) const{
         }
         case 1: {
             cout << endl;
-            cout << "Lütfen performansýný deðiþtirmek istediðiniz oyuncunun sýra numarasýný giriniz: ";
-            int no = WrongValue(1, 11, "Hatalý oyuncu sýra numarasý girdiniz.", "Lütfen oyuncu sýra numarasý tekrar giriniz: ");
+            cout << "LÃ¼tfen performansÃ½nÃ½ deÃ°iÃ¾tirmek istediÃ°iniz oyuncunun sÃ½ra numarasÃ½nÃ½ giriniz: ";
+            int no = WrongValue(1, 11, "HatalÃ½ oyuncu sÃ½ra numarasÃ½ girdiniz.", "LÃ¼tfen oyuncu sÃ½ra numarasÃ½ tekrar giriniz: ");
             Player* p = player[no-1];
             cout << endl;
-            cout << "Lütfen güncellemek istediðiniz yeni performans deðerini giriniz: ";
-            int newPerf = WrongValue(30, 100, "Oyuncu performansý 30 ile 100 arasýnda olmalýdýr.", "Lütfen oyuncu performans deðerini tekrar giriniz: ");
+            cout << "LÃ¼tfen gÃ¼ncellemek istediÃ°iniz yeni performans deÃ°erini giriniz: ";
+            int newPerf = WrongValue(30, 100, "Oyuncu performansÃ½ 30 ile 100 arasÃ½nda olmalÃ½dÃ½r.", "LÃ¼tfen oyuncu performans deÃ°erini tekrar giriniz: ");
             p->SetPlayerPerformance(newPerf);
             GetTeamInfo(s);
         }
@@ -554,11 +553,11 @@ void Match::GetMatchInfo(const int& round, const int& match) const{
     }
 
     if (played == 0){
-        cout << "ID: " << emptyf << id << " | " << emptys << round + 1 << ". Hafta " << emptyt << match + 1 << ". Maç:" << setw(24) << home->GetTeamName() << "   -   " << away->GetTeamName() << endl;
+        cout << "ID: " << emptyf << id << " | " << emptys << round + 1 << ". Hafta " << emptyt << match + 1 << ". MaÃ§:" << setw(24) << home->GetTeamName() << "   -   " << away->GetTeamName() << endl;
     }
     else
     {
-        cout << "ID: " << emptyf << id << " | " << emptys << round + 1 << ". Hafta " << emptyt << match + 1 << ". Maç:" << setw(24) << home->GetTeamName() << " " << winHomeS << homeGoal << winHomeE << " - " << winAwayS << awayGoal << winAwayE << " " << away->GetTeamName() << endl;
+        cout << "ID: " << emptyf << id << " | " << emptys << round + 1 << ". Hafta " << emptyt << match + 1 << ". MaÃ§:" << setw(24) << home->GetTeamName() << " " << winHomeS << homeGoal << winHomeE << " - " << winAwayS << awayGoal << winAwayE << " " << away->GetTeamName() << endl;
     }
 }
 
@@ -742,10 +741,10 @@ void CalcMatchResultWithSeason(vector<vector<Match*>> array){
 
 Team* SelectTeam(){
     GetTeamsName();
-    cout << "0. Menüye Dön" << endl;
+    cout << "0. MenÃ¼ye DÃ¶n" << endl;
     cout << endl;
-    cout << "Lütfen iþlem yapmak istediðiniz takým numarasýný giriniz: ";
-    int teamIndex = WrongValue(0, teams.size(), "Hatalý takým numarasý girdiniz.", "Lütfen tekrar giriniz: ");
+    cout << "LÃ¼tfen iÃ¾lem yapmak istediÃ°iniz takÃ½m numarasÃ½nÃ½ giriniz: ";
+    int teamIndex = WrongValue(0, teams.size(), "HatalÃ½ takÃ½m numarasÃ½ girdiniz.", "LÃ¼tfen tekrar giriniz: ");
     if (teamIndex == 0)
         Menu();
     Team* t = teams[teamIndex-1];
@@ -754,10 +753,10 @@ Team* SelectTeam(){
 
 Player* SelectPlayer(Team* t, const int& s){
     t->GetPlayersName();
-    cout << "0. Geri Dön" << endl;
+    cout << "0. Geri DÃ¶n" << endl;
     cout << endl;
-    cout << "Lütfen iþlem yapmak istediðiniz oyuncu numarasýný giriniz: ";
-    int playerIndex = WrongValue(0, 11, "Hatalý oyuncu numarasý girdiniz.", "Lütfen tekrar giriniz: ");
+    cout << "LÃ¼tfen iÃ¾lem yapmak istediÃ°iniz oyuncu numarasÃ½nÃ½ giriniz: ";
+    int playerIndex = WrongValue(0, 11, "HatalÃ½ oyuncu numarasÃ½ girdiniz.", "LÃ¼tfen tekrar giriniz: ");
     if (playerIndex == 0)
         MenuProcess(s);
     cout << endl;
@@ -795,10 +794,10 @@ void GetAllMatch(){
         }
     }
     cout << endl;
-    cout << "0. Geri Dön" << endl;
+    cout << "0. Geri DÃ¶n" << endl;
     cout << endl;
-    cout << "Lütfen görmek istediðiniz karþýlaþmanýn Maç ID'sini giriniz veya geri dönebilirsiniz: ";
-    int id = WrongValue(0, totalRounds * matchesPerRound, "Hatalý Maç ID'si girdiniz.", "Lütfen tekrar giriniz: ");
+    cout << "LÃ¼tfen gÃ¶rmek istediÃ°iniz karÃ¾Ã½laÃ¾manÃ½n MaÃ§ ID'sini giriniz veya geri dÃ¶nebilirsiniz: ";
+    int id = WrongValue(0, totalRounds * matchesPerRound, "HatalÃ½ MaÃ§ ID'si girdiniz.", "LÃ¼tfen tekrar giriniz: ");
     if (id == 0)
         Menu();
     cout << endl;
@@ -843,7 +842,7 @@ void GetMatchInfoWithID(const int& id){
                 
                 if (matchs[round][match]->GetPlayed()){
                     cout << "--------------------------------------------------------------------------------------------------------------" << endl;
-                    cout << setw(43) << "Atýlan Gol: " << matchs[round][match]->GetMatchHomeGoal() << setw(52) << "Atýlan Gol: " << matchs[round][match]->GetMatchAwayGoal() << endl;
+                    cout << setw(43) << "AtÃ½lan Gol: " << matchs[round][match]->GetMatchHomeGoal() << setw(52) << "AtÃ½lan Gol: " << matchs[round][match]->GetMatchAwayGoal() << endl;
                 } 
                 else
                     cout << endl;
@@ -889,7 +888,7 @@ void Scoreboard(){
     Sort("Average");
     Sort("MostGoal");
 
-    cout << underline << " Sýra No " << ununderline << "   " << underline << "    Takým Adý    " << ununderline << "   " << underline << " Oynadýðý Maç " << ununderline << "   " << underline << " Galibiyet Sayýsý " << ununderline << "   " << underline " Beraberlik Sayýsý " << ununderline << "   " << underline << " Maðlubiyet Sayýsý " << ununderline << "   " << underline << " Atýlan Gol " << ununderline << "   " << underline << " Yenilen Gol " << ununderline << "   " << underline " Averaj " << ununderline << "   " << underline " Puan " << ununderline << endl;
+    cout << underline << " SÃ½ra No " << ununderline << "   " << underline << "    TakÃ½m AdÃ½    " << ununderline << "   " << underline << " OynadÃ½Ã°Ã½ MaÃ§ " << ununderline << "   " << underline << " Galibiyet SayÃ½sÃ½ " << ununderline << "   " << underline " Beraberlik SayÃ½sÃ½ " << ununderline << "   " << underline << " MaÃ°lubiyet SayÃ½sÃ½ " << ununderline << "   " << underline << " AtÃ½lan Gol " << ununderline << "   " << underline << " Yenilen Gol " << ununderline << "   " << underline " Averaj " << ununderline << "   " << underline " Puan " << ununderline << endl;
     for (int i = 0; i < teams.size(); i++){ 
         Team* t = teams[i];
         string teamName = t->GetTeamName();
@@ -942,8 +941,8 @@ void MenuProcess(const int& s){
 }
 
 void Back(const int& s){
-    cout << "0. Geri Dön: ";
-    int back = WrongValue(0, 0, "Hatalý iþlem numarasý girdiniz.", "Lütfen tekrar giriniz: ");
+    cout << "0. Geri DÃ¶n: ";
+    int back = WrongValue(0, 0, "HatalÃ½ iÃ¾lem numarasÃ½ girdiniz.", "LÃ¼tfen tekrar giriniz: ");
     if (back == 0){
         MenuProcess(s);
     }
@@ -953,20 +952,20 @@ void Menu(){
     Title("Sanal Lig - Puan Durumu");
     Scoreboard();
     cout << endl;
-    cout << "1. Takým Bilgisini Göster" << endl;
-    cout << "2. Takýmýn Haftalýk Maçlarýný Göster" << endl;
-    cout << "3. Maç ID'si Ýle Detaylý Karþýlaþma Bilgisini Göster" << endl;
+    cout << "1. TakÃ½m Bilgisini GÃ¶ster" << endl;
+    cout << "2. TakÃ½mÃ½n HaftalÃ½k MaÃ§larÃ½nÃ½ GÃ¶ster" << endl;
+    cout << "3. MaÃ§ ID'si Ãle DetaylÃ½ KarÃ¾Ã½laÃ¾ma Bilgisini GÃ¶ster" << endl;
     if (season == 0){
-        cout << "4. Ýlk Sezonu Oynat" << endl;
+        cout << "4. Ãlk Sezonu Oynat" << endl;
     }
     else if (season == 1){
-        cout << "4. Ýkinci Sezonu Oynat" << endl;
+        cout << "4. Ãkinci Sezonu Oynat" << endl;
     }
     cout << endl;
-    cout << "0. Çýkýþ" << endl;
+    cout << "0. Ã‡Ã½kÃ½Ã¾" << endl;
     cout << endl;
-    cout << "Lütfen yapmak istediðiniz iþlem numarasýný giriniz: ";
-    int state = WrongValue(0, 4, "Hatalý iþlem numarasý girdiniz.", "Lütfen tekrar giriniz: ");
+    cout << "LÃ¼tfen yapmak istediÃ°iniz iÃ¾lem numarasÃ½nÃ½ giriniz: ";
+    int state = WrongValue(0, 4, "HatalÃ½ iÃ¾lem numarasÃ½ girdiniz.", "LÃ¼tfen tekrar giriniz: ");
     MenuProcess(state);
 }
 
