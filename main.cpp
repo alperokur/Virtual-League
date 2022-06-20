@@ -49,6 +49,9 @@ class Coach{
         string GetCoachName() const;
 };
 
+
+// ------------------ team.h ------------------
+
 class Team{
     private:
         string teamName;
